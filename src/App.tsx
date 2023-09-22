@@ -57,14 +57,14 @@ export const App = () => {
     const newTime = (video?.currentTime ?? 0) * 1000;
 
     if (
-      faceLandmarker &&
+      faceLandmarker.current &&
       video &&
       newTime > 0 &&
       newTime !== processStream.current.lastProcessTime &&
       processStream.current.state === "idle"
     ) {
       processStream.current.state = "inFlight";
-      const result = faceLandmarker.detectForVideo(video, newTime);
+      const result = faceLandmarker.current.detectForVideo(video, newTime);
       rerender();
 
       const mostLikely = getMostLikelyExpression(result);

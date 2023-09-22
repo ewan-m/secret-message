@@ -34,7 +34,7 @@ export const useFaceLandmarker = () => {
     })();
   }, []);
 
-  return faceLandmarker.current;
+  return faceLandmarker;
 };
 
 const facialExpressions = [
